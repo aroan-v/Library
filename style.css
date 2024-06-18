@@ -1,0 +1,647 @@
+/* ================== */
+/* CSS Reset          */
+/* ================== */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ================== */
+/* Font Face          */
+/* ================== */
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/Inter-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: normal;
+  font-style: italic;
+  src: url("fonts/Inter-Italic.ttf") format("truetype");
+}
+
+/* ================== */
+/* Global Styles      */
+/* ================== */
+
+body {
+  font-family: Inter;
+  display: flex;
+  background-color: var(--background-color);
+  height: 100vh;
+  min-height: 800px;
+  color: #3a3a3a;
+  background-color: #e6e5f3;
+}
+
+button:focus {
+  /* border: none; */
+  outline: none;
+}
+
+h1 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+h2 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+}
+
+.book-author {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+/* ================== */
+/* Form Styles      */
+/* ================== */
+
+dialog#dialog {
+  /* Reset default font styles */
+  font-family: inherit;
+  font-size: inherit;
+
+  /* Reset any default borders or outlines */
+  border: none;
+  outline: none;
+
+  position: relative;
+
+  width: 489px;
+  height: 381px;
+  border-radius: 20px;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 16px rgba(0, 0, 0, 0.28);
+}
+
+.dialog-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.book-wrapper {
+  display: flex;
+  gap: 22px;
+}
+
+form {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.dialog-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog-buttons-container label,
+.dialog-buttons-container button {
+  color: #0a004a;
+  font-family: Inter;
+  font-size: 14px;
+}
+
+.dialog-buttons-container label:active,
+.upload-cover-label:active label,
+.dialog-buttons-container button:active {
+  color: #ffffff;
+}
+
+.input-container {
+  width: 260px;
+}
+
+.star-container {
+  display: flex;
+  align-items: center;
+}
+
+.star-container-heading {
+  display: inline;
+}
+
+.input-container > div {
+  position: relative;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+div.input-book-title {
+  margin-bottom: 30px;
+}
+
+input:not([type="file"]) {
+  display: block;
+  width: 100%;
+  border: none; /* No border initially */
+  outline: none; /* No outline on focus */
+  border-bottom: 2px solid gray; /* Bottom border with gray color */
+  background-color: white; /* Background color */
+  padding: 5px 0; /* Padding for content */
+  transition: border-color 300ms; /* Smooth transition for border color */
+}
+
+input[type="file"] {
+  /* width: 100px; */
+  display: none;
+}
+
+.upload-cover-label,
+#submit {
+  width: 150px;
+  height: 33px;
+
+  border: 1px solid #7949ff;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#submit {
+  width: 100px;
+}
+
+.upload-cover-label:hover,
+#submit:hover {
+  background-color: #f0f0f0;
+}
+
+.upload-cover-label:active,
+#submit:active {
+  background-color: #07124e;
+}
+
+form > * {
+  margin-bottom: 16px;
+}
+
+input + label {
+  font-size: 15px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  color: var(--gray);
+  pointer-events: none; /* Label doesn't interfere with pointer events */
+  transition: transform 300ms; /* Smooth transition for transformation */
+  transform-origin: left; /* Think of this as an imaginary point around which all these transformations happen */
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  transform: scale(0.8) translateY(-25px); /* Scale down and move up on focus or non-empty input */
+}
+
+/* ================== */
+/* Grid Styles      */
+/* ================== */
+
+.container {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 140px 1fr;
+  gap: 20px;
+  width: 1500px;
+  padding-right: 20px;
+}
+
+.books-container {
+  display: grid;
+  align-self: start;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(180px, auto));
+  grid-auto-rows: minmax(180px, auto);
+  grid-auto-columns: minmax(390px, auto);
+  gap: 20px;
+}
+
+/* ================== */
+/* Grid Children Styles      */
+/* ================== */
+
+.header {
+  grid-column: 2 / -1;
+  align-self: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  flex: 2;
+}
+
+.header-button-container {
+  flex: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.add-book-button-header,
+.empty-library-button-header {
+  margin: 0;
+  padding: 10px;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  /* border: 9px solid #d9d8e2; */
+
+  justify-self: start;
+
+  border: 1px solid #000000;
+  width: 155px;
+  border-radius: 50px;
+}
+
+.add-book-button-header:hover,
+.empty-library-button-header:hover {
+  border: 2px solid #000000;
+  font-weight: 600;
+}
+
+.add-book-button-header:active,
+.empty-library-button-header:active {
+  background-color: #0a004a;
+  color: #ffffff;
+}
+
+.books-container button {
+  justify-self: start;
+}
+
+.add-book-button .hover-state,
+.add-book-button:hover .normal-state {
+  display: none;
+}
+
+.add-book-button:hover .hover-state {
+  display: inline;
+}
+
+.books-container > div {
+  position: relative;
+  background-color: #d9d8e2;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.close-button {
+  display: none;
+}
+
+.message-container {
+  display: none;
+  font-style: italic;
+  font-size: 9px;
+  color: red;
+  position: absolute;
+  top: 25px;
+  left: 0px;
+  opacity: 1;
+  transition: opacity 5s ease-out;
+}
+
+.invalid-message {
+  display: inline;
+}
+
+.books-container > div:hover .close-button {
+  display: inline;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+div.side-bar {
+  grid-row: 1 / -1;
+  background-color: #0a004a;
+  display: grid;
+  grid-template-rows: 140px 1fr 140px;
+  justify-items: center;
+  align-items: center;
+}
+
+.side-bar > a:hover {
+  transform: scale(1.05);
+}
+
+img.book-cover {
+  width: 96px;
+  height: 154px;
+  background-color: #000000;
+}
+
+img.book-cover-preview {
+  width: 150px;
+  height: 240.63px;
+  background-color: #c3c3c3;
+  cursor: pointer;
+}
+
+img.book-cover-preview:hover {
+  filter: brightness(120%);
+}
+
+nav.menu {
+  align-self: start;
+}
+
+.menu ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: border-color 0.5s;
+
+  height: 80px;
+  width: 120px;
+  cursor: pointer;
+}
+
+.menu ul li:hover {
+  background-color: #2b2454;
+  border-left: 5px solid #ff7629;
+}
+
+.menu ul li:hover svg image {
+  filter: invert(21%) sepia(92%) saturate(724%) hue-rotate(352deg)
+    brightness(92%) contrast(97%);
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none; /* For Safari */
+
+  background-color: #0a004a;
+
+  padding: 5px 30px 5px 10px;
+  height: 30px;
+
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  /* font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.03em; */
+  color: #ffffff;
+
+  border-radius: 4px;
+
+  /* Add arrow indicator */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%23fff" d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center; /* Adjust position for the arrow */
+  background-size: 10%; /* Set the size of the arrow */
+  cursor: pointer;
+  width: 170px;
+}
+
+select:focus {
+  outline: none;
+  border-color: #32b0d8;
+}
+
+select:hover {
+  background-color: #281e67;
+}
+
+.input-container select {
+  width: 100%;
+}
+
+h2.long-title {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+h2.extra-long-title {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.star-container path {
+  fill: #bdbdbd;
+}
+
+.star-container > svg {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.star.lit path,
+.star.lit-hover path {
+  fill: #e5a500;
+}
+
+/* Pseudo Classes */
+
+input#book-title:focus ~ .invalid-message {
+  display: none;
+}
+
+/* Media Queries  */
+
+@media (max-width: 570px) {
+  .body {
+    width: 570px;
+  }
+
+  .books-container {
+    grid-template-columns: 420px;
+  }
+}

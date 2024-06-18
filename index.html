@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <dialog id="dialog">
+      <div class="dialog-heading">
+        <h2>Add new book title</h2>
+        <button class="close-dialog-button">
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
+      </div>
+      <form class="book-form" action="#" method="post">
+        <img
+          src="images/placeholder-cover.png"
+          alt=""
+          class="book-cover-preview"
+        />
+        <div class="input-container">
+          <div class="input-book-title">
+            <input
+              type="text"
+              id="book-title"
+              name="book-title"
+              placeholder=" "
+              minlength="3"
+              maxlength="84"
+              required
+            />
+            <label for="book-title"
+              >Book Title: <span class="required">*</span></label
+            >
+            <p class="message-container">Book already exists in the library!</p>
+          </div>
+          <div class="input-author">
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder=" "
+              minlength="3"
+              maxlength="50"
+            />
+            <label for="author">Author: </label>
+          </div>
+          <div class="input-page">
+            <input
+              type="number"
+              id="pages"
+              name="pages"
+              placeholder=" "
+              minlength="3"
+              maxlength="4"
+              min="10"
+            />
+            <label for="pages">Book Pages: </label>
+          </div>
+          <div class="star-container">
+            <div class="star-container-heading">Rating:</div>
+            <svg class="star" viewBox="0 0 19 18">
+              <path
+                d="M8.53759 0.821825C8.83694 -0.0994856 10.1404 -0.0994847 10.4397 0.821826L11.8687 5.21985C12.0026 5.63188 12.3865 5.91084 12.8198 5.91084H17.4441C18.4128 5.91084 18.8156 7.15045 18.0319 7.71985L14.2907 10.438C13.9402 10.6926 13.7936 11.144 13.9275 11.556L15.3565 15.954C15.6558 16.8754 14.6013 17.6415 13.8176 17.0721L10.0764 14.3539C9.72594 14.0993 9.25135 14.0993 8.90086 14.3539L5.15968 17.0721C4.37596 17.6415 3.32148 16.8754 3.62084 15.954L5.04984 11.556C5.18372 11.144 5.03706 10.6926 4.68657 10.438L0.945383 7.71985C0.16167 7.15045 0.564446 5.91084 1.53317 5.91084H6.15753C6.59076 5.91084 6.97471 5.63188 7.10859 5.21985L8.53759 0.821825Z"
+              ></path>
+            </svg>
+            <svg class="star" viewBox="0 0 19 18">
+              <path
+                d="M8.53759 0.821825C8.83694 -0.0994856 10.1404 -0.0994847 10.4397 0.821826L11.8687 5.21985C12.0026 5.63188 12.3865 5.91084 12.8198 5.91084H17.4441C18.4128 5.91084 18.8156 7.15045 18.0319 7.71985L14.2907 10.438C13.9402 10.6926 13.7936 11.144 13.9275 11.556L15.3565 15.954C15.6558 16.8754 14.6013 17.6415 13.8176 17.0721L10.0764 14.3539C9.72594 14.0993 9.25135 14.0993 8.90086 14.3539L5.15968 17.0721C4.37596 17.6415 3.32148 16.8754 3.62084 15.954L5.04984 11.556C5.18372 11.144 5.03706 10.6926 4.68657 10.438L0.945383 7.71985C0.16167 7.15045 0.564446 5.91084 1.53317 5.91084H6.15753C6.59076 5.91084 6.97471 5.63188 7.10859 5.21985L8.53759 0.821825Z"
+              ></path>
+            </svg>
+            <svg class="star" viewBox="0 0 19 18">
+              <path
+                d="M8.53759 0.821825C8.83694 -0.0994856 10.1404 -0.0994847 10.4397 0.821826L11.8687 5.21985C12.0026 5.63188 12.3865 5.91084 12.8198 5.91084H17.4441C18.4128 5.91084 18.8156 7.15045 18.0319 7.71985L14.2907 10.438C13.9402 10.6926 13.7936 11.144 13.9275 11.556L15.3565 15.954C15.6558 16.8754 14.6013 17.6415 13.8176 17.0721L10.0764 14.3539C9.72594 14.0993 9.25135 14.0993 8.90086 14.3539L5.15968 17.0721C4.37596 17.6415 3.32148 16.8754 3.62084 15.954L5.04984 11.556C5.18372 11.144 5.03706 10.6926 4.68657 10.438L0.945383 7.71985C0.16167 7.15045 0.564446 5.91084 1.53317 5.91084H6.15753C6.59076 5.91084 6.97471 5.63188 7.10859 5.21985L8.53759 0.821825Z"
+              ></path>
+            </svg>
+            <svg class="star" viewBox="0 0 19 18">
+              <path
+                d="M8.53759 0.821825C8.83694 -0.0994856 10.1404 -0.0994847 10.4397 0.821826L11.8687 5.21985C12.0026 5.63188 12.3865 5.91084 12.8198 5.91084H17.4441C18.4128 5.91084 18.8156 7.15045 18.0319 7.71985L14.2907 10.438C13.9402 10.6926 13.7936 11.144 13.9275 11.556L15.3565 15.954C15.6558 16.8754 14.6013 17.6415 13.8176 17.0721L10.0764 14.3539C9.72594 14.0993 9.25135 14.0993 8.90086 14.3539L5.15968 17.0721C4.37596 17.6415 3.32148 16.8754 3.62084 15.954L5.04984 11.556C5.18372 11.144 5.03706 10.6926 4.68657 10.438L0.945383 7.71985C0.16167 7.15045 0.564446 5.91084 1.53317 5.91084H6.15753C6.59076 5.91084 6.97471 5.63188 7.10859 5.21985L8.53759 0.821825Z"
+              ></path>
+            </svg>
+            <svg class="star" viewBox="0 0 19 18">
+              <path
+                d="M8.53759 0.821825C8.83694 -0.0994856 10.1404 -0.0994847 10.4397 0.821826L11.8687 5.21985C12.0026 5.63188 12.3865 5.91084 12.8198 5.91084H17.4441C18.4128 5.91084 18.8156 7.15045 18.0319 7.71985L14.2907 10.438C13.9402 10.6926 13.7936 11.144 13.9275 11.556L15.3565 15.954C15.6558 16.8754 14.6013 17.6415 13.8176 17.0721L10.0764 14.3539C9.72594 14.0993 9.25135 14.0993 8.90086 14.3539L5.15968 17.0721C4.37596 17.6415 3.32148 16.8754 3.62084 15.954L5.04984 11.556C5.18372 11.144 5.03706 10.6926 4.68657 10.438L0.945383 7.71985C0.16167 7.15045 0.564446 5.91084 1.53317 5.91084H6.15753C6.59076 5.91084 6.97471 5.63188 7.10859 5.21985L8.53759 0.821825Z"
+              ></path>
+            </svg>
+          </div>
+          <select name="status">
+            <option value="" class="default-status" disabled selected>
+              Select Status
+            </option>
+            <option value="Not Read Yet">Not Read Yet</option>
+            <option value="Read">Read</option>
+            <option value="Want to Read">Want to Read</option>
+            <option value="Currently Reading">Currently Reading</option>
+          </select>
+        </div>
+        <div class="dialog-buttons-container">
+          <button type="button" class="upload-cover-label">
+            <label for="upload"> Upload Cover</label>
+            <input type="file" id="upload" accept="image/*" />
+          </button>
+          <button type="submit" id="submit">Submit</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="container">
+      <div class="side-bar">
+        <a href="#">
+          <svg width="73.92" height="80.64" xmlns="http://www.w3.org/2000/svg">
+            <title>Library App</title>
+            <image
+              href="images/nav/library-logo.svg"
+              width="100%"
+              height="100%"
+            />
+          </svg>
+        </a>
+        <nav class="menu">
+          <ul>
+            <li>
+              <svg
+                width="31.4"
+                height="31.4"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>My books</title>
+                <image href="images/nav/book.svg" width="100%" height="100%" />
+              </svg>
+            </li>
+            <li>
+              <svg
+                width="31.4"
+                height="31.4"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>My Bookmarks</title>
+                <image
+                  href="images/nav/bookmark.svg"
+                  width="100%"
+                  height="100%"
+                />
+              </svg>
+            </li>
+            <li>
+              <svg
+                width="31.4"
+                height="31.4"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Shop</title>
+                <image href="images/nav/shop.svg" width="100%" height="100%" />
+              </svg>
+            </li>
+            <li>
+              <svg
+                width="31.4"
+                height="31.4"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Settings</title>
+                <image
+                  href="images/nav/settings.svg"
+                  width="100%"
+                  height="100%"
+                />
+              </svg>
+            </li>
+          </ul>
+        </nav>
+        <a href="https://github.com/aroan-v/Library" target="_blank">
+          <svg width="86.81" height="35.92" xmlns="http://www.w3.org/2000/svg">
+            <image
+              href="images/nav/personal-logo.svg"
+              width="100%"
+              height="100%"
+            />
+          </svg>
+        </a>
+      </div>
+      <div class="header">
+        <h1>Hello, User!</h1>
+        <div class="header-button-container">
+          <button class="add-book-button-header add-book">Add book</button>
+          <button class="empty-library-button-header">Empty Library</button>
+        </div>
+      </div>
+      <div class="books-container">
+        <button class="add-book-button add-book">
+          <svg
+            width="112"
+            height="180"
+            viewBox="0 0 112 180"
+            fill="none"
+            class="normal-state"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="0.5"
+              y="0.5"
+              width="111"
+              height="179"
+              rx="9.5"
+              stroke="#444444"
+              stroke-dasharray="6 6"
+            />
+            <path
+              d="M73.0508 87.0845H60.4172V74.4509C60.4172 72.8407 59.1119 71.5354 57.5017 71.5354C55.8915 71.5354 54.5862 72.8407 54.5862 74.4509V87.0845H41.9526C40.3424 87.0845 39.0371 88.3898 39.0371 90C39.0371 91.6102 40.3424 92.9155 41.9526 92.9155H54.5862V105.549C54.5862 107.159 55.8915 108.465 57.5017 108.465C59.1119 108.465 60.4172 107.159 60.4172 105.549V92.9155H73.0508C74.661 92.9155 75.9663 91.6102 75.9663 90C75.9663 88.3898 74.661 87.0845 73.0508 87.0845Z"
+              fill="#444444"
+            />
+          </svg>
+
+          <svg
+            width="112"
+            height="180"
+            viewBox="0 0 112 180"
+            fill="none"
+            class="hover-state"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="0.5"
+              y="0.5"
+              width="111"
+              height="179"
+              rx="9.5"
+              stroke="#444444"
+            />
+            <path
+              d="M73.8653 86.8148H61.2316V74.1811C61.2316 72.5709 59.9263 71.2656 58.3162 71.2656C56.706 71.2656 55.4007 72.5709 55.4007 74.1811V86.8148H42.767C41.1569 86.8148 39.8516 88.1201 39.8516 89.7302C39.8516 91.3404 41.1569 92.6457 42.767 92.6457H55.4007V105.279C55.4007 106.89 56.706 108.195 58.3162 108.195C59.9263 108.195 61.2316 106.89 61.2316 105.279V92.6457H73.8653C75.4755 92.6457 76.7808 91.3404 76.7808 89.7302C76.7808 88.1201 75.4755 86.8148 73.8653 86.8148Z"
+              fill="#444444"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
