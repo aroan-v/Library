@@ -62,19 +62,8 @@ const statusOptions = [
   { value: "Currently Reading", text: "Currently Reading" },
 ];
 
-function Book(arg) {
-  // Newly added books by the User is passed as an array.
-  if (Array.isArray(arg)) {
-    this.title = arg[0];
-    this.author = arg[1];
-    this.pages = arg[2];
-    this.rating = arg[3];
-    this.status = arg[4];
-    this.image = arg[5];
-    this.isDefaultBook = arg[6];
-  } else if (typeof arg === "object") {
-    // Starting books are passed as an object.
-    const { title, author, pages, rating, status, image, isDefaultBook } = arg;
+class BookTest {
+  constructor({ title, author, pages, rating, status, image, isDefaultBook }) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -82,144 +71,144 @@ function Book(arg) {
     this.status = status;
     this.image = image;
     this.isDefaultBook = isDefaultBook;
-  } else {
-    console.log("Invalid argument passed to the constructor");
-    return;
   }
-}
 
-Book.prototype.info = function () {
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.status}.`;
-};
+  info() {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.status}.`;
+  }
 
-Book.prototype.generateStatus = function () {
-  // Create a <select> element
-  const selectElement = document.createElement("select");
-  selectElement.name = "status";
+  generateStatus() {
+    // Create a <select> element
+    const selectElement = document.createElement("select");
+    selectElement.name = "status";
 
-  // Create and append the "Select Status" option
-  const defaultOption = document.createElement("option");
-  defaultOption.value = "";
-  defaultOption.disabled = true;
-  defaultOption.selected = true;
-  defaultOption.textContent = "Select Status";
-  selectElement.appendChild(defaultOption);
+    // Create and append the "Select Status" option
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    defaultOption.textContent = "Select Status";
+    selectElement.appendChild(defaultOption);
 
-  statusOptions.forEach((option) => {
-    const optionElement = document.createElement("option");
+    statusOptions.forEach((option) => {
+      const optionElement = document.createElement("option");
 
-    optionElement.value = option.value;
-    optionElement.textContent = option.text;
-    selectElement.appendChild(optionElement);
+      optionElement.value = option.value;
+      optionElement.textContent = option.text;
+      selectElement.appendChild(optionElement);
 
-    optionElement.selected = this.status === option.value ? true : false;
-  });
+      optionElement.selected = this.status === option.value ? true : false;
+    });
 
-  // Event listener to record changes
+    // Event listener to record changes
 
-  const self = this;
+    const self = this;
 
-  selectElement.addEventListener("change", function () {
-    self.status = this.value;
+    selectElement.addEventListener("change", function () {
+      self.status = this.value;
 
-    console.log(`Book: ${self.title}`);
-    console.log("New status: ", self.status);
-  });
+      console.log(`Book: ${self.title}`);
+      console.log("New status: ", self.status);
+    });
 
-  return selectElement;
-};
+    return selectElement;
+  }
 
-Book.prototype.generateStars = function () {
-  const bookRating = document.createElement("div");
+  generateStars() {
+    const bookRating = document.createElement("div");
 
-  for (i = 1; i <= 5; i++) {
-    // Create SVG element
+    for (let i = 1; i <= 5; i++) {
+      // Create SVG element
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+
+      // Set attributes
+      svg.setAttribute("width", "19");
+      svg.setAttribute("height", "18");
+      svg.setAttribute("viewBox", "0 0 19 18");
+
+      // Create path element
+      const path = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path"
+      );
+      path.setAttribute(
+        "d",
+        "M8.53759 0.821825C8.83694 -0.0994856 10.1404 -0.0994847 10.4397 0.821826L11.8687 5.21985C12.0026 5.63188 12.3865 5.91084 12.8198 5.91084H17.4441C18.4128 5.91084 18.8156 7.15045 18.0319 7.71985L14.2907 10.438C13.9402 10.6926 13.7936 11.144 13.9275 11.556L15.3565 15.954C15.6558 16.8754 14.6013 17.6415 13.8176 17.0721L10.0764 14.3539C9.72594 14.0993 9.25135 14.0993 8.90086 14.3539L5.15968 17.0721C4.37596 17.6415 3.32148 16.8754 3.62084 15.954L5.04984 11.556C5.18372 11.144 5.03706 10.6926 4.68657 10.438L0.945383 7.71985C0.16167 7.15045 0.564446 5.91084 1.53317 5.91084H6.15753C6.59076 5.91084 6.97471 5.63188 7.10859 5.21985L8.53759 0.821825Z"
+      );
+
+      // Set the star color based on the rating
+
+      if (i <= this.rating) {
+        // Set the star to yellow fill.
+        path.setAttribute("fill", "#E5A500");
+      } else {
+        // Set the star to gray fill.
+        path.setAttribute("fill", "#BDBDBD");
+      }
+
+      // Append path to SVG element
+      svg.appendChild(path);
+      bookRating.appendChild(svg);
+    }
+
+    // return the element to be appended later
+    return bookRating;
+  }
+
+  generateCloseButton() {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const button = document.createElement("button");
 
     // Set attributes
-    svg.setAttribute("width", "19");
-    svg.setAttribute("height", "18");
-    svg.setAttribute("viewBox", "0 0 19 18");
+    svg.setAttribute("width", "24");
+    svg.setAttribute("height", "24");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    button.classList.add("close-button");
 
-    // Create path element
+    // Create path element for the close button
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute(
       "d",
-      "M8.53759 0.821825C8.83694 -0.0994856 10.1404 -0.0994847 10.4397 0.821826L11.8687 5.21985C12.0026 5.63188 12.3865 5.91084 12.8198 5.91084H17.4441C18.4128 5.91084 18.8156 7.15045 18.0319 7.71985L14.2907 10.438C13.9402 10.6926 13.7936 11.144 13.9275 11.556L15.3565 15.954C15.6558 16.8754 14.6013 17.6415 13.8176 17.0721L10.0764 14.3539C9.72594 14.0993 9.25135 14.0993 8.90086 14.3539L5.15968 17.0721C4.37596 17.6415 3.32148 16.8754 3.62084 15.954L5.04984 11.556C5.18372 11.144 5.03706 10.6926 4.68657 10.438L0.945383 7.71985C0.16167 7.15045 0.564446 5.91084 1.53317 5.91084H6.15753C6.59076 5.91084 6.97471 5.63188 7.10859 5.21985L8.53759 0.821825Z"
+      "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
     );
+    path.setAttribute("fill", "#000000");
+    svg.appendChild(path);
 
-    // Set the star color based on the rating
+    // Add a callback function that will remove the Book instance from the array as well as the book tile element where the close button is attached to.
+    svg.addEventListener("click", () => {
+      bookList = bookList.filter((book) => book.title !== this.title);
+      bookTile.remove();
+    });
 
-    if (i <= this.rating) {
-      // Set the star to yellow fill.
-      path.setAttribute("fill", "#E5A500");
+    button.appendChild(svg);
+
+    return button;
+  }
+
+  generateBookCover() {
+    const img = document.createElement("img");
+    if (this.isDefaultBook) {
+      img.src = this.image;
+    } else if (this.image === undefined) {
+      this.image = "images/default-cover.png";
+      img.src = this.image;
     } else {
-      // Set the star to gray fill.
-      path.setAttribute("fill", "#BDBDBD");
+      const reader = new FileReader();
+      // Read the file as a data URL first
+      reader.readAsDataURL(this.image);
+
+      // Define what happens when the file is loaded
+      reader.onload = () => {
+        img.src = reader.result;
+        this.image = reader.result;
+      };
     }
 
-    // Append path to SVG element
-    svg.appendChild(path);
-    bookRating.appendChild(svg);
+    img.classList.add("book-cover");
+
+    return img;
   }
-
-  // return the element to be appended later
-  return bookRating;
-};
-
-Book.prototype.generateCloseButton = function (bookTile) {
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  const button = document.createElement("button");
-
-  // Set attributes
-  svg.setAttribute("width", "24");
-  svg.setAttribute("height", "24");
-  svg.setAttribute("viewBox", "0 0 24 24");
-  button.classList.add("close-button");
-
-  // Create path element for the close button
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute(
-    "d",
-    "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-  );
-  path.setAttribute("fill", "#000000");
-  svg.appendChild(path);
-
-  // Add a callback function that will remove the Book instance from the array as well as the book tile element where the close button is attached to.
-  svg.addEventListener("click", () => {
-    bookList = bookList.filter((book) => book.title !== this.title);
-    bookTile.remove();
-  });
-
-  button.appendChild(svg);
-
-  return button;
-};
-
-Book.prototype.generateBookCover = function () {
-  const img = document.createElement("img");
-  if (this.isDefaultBook) {
-    img.src = this.image;
-  } else if (this.image === undefined) {
-    this.image = "images/default-cover.png";
-    img.src = this.image;
-  } else {
-    const reader = new FileReader();
-    // Read the file as a data URL first
-    reader.readAsDataURL(this.image);
-
-    // Define what happens when the file is loaded
-    reader.onload = () => {
-      img.src = reader.result;
-      this.image = reader.result;
-    };
-  }
-
-  img.classList.add("book-cover");
-
-  return img;
-};
+}
 
 // Initialize the library with the startingBooks
 
@@ -248,15 +237,15 @@ function handleDataFromForm(event, action) {
   const statusValue = document.querySelector('select[name="status"]').value;
   const isDefaultBook = false;
 
-  const newBookData = [
-    titleValue,
-    authorValue,
-    pagesValue,
-    ratingValue,
-    statusValue,
-    bookCover,
-    isDefaultBook,
-  ];
+  const newBookData = {
+    title: titleValue,
+    author: authorValue,
+    pages: pagesValue,
+    rating: ratingValue,
+    status: statusValue,
+    image: bookCover,
+    isDefaultBook: isDefaultBook,
+  };
 
   deployBooks("new-book", newBookData);
 }
@@ -277,13 +266,13 @@ function clearDataFromForm() {
 function deployBooks(group, value) {
   console.clear();
   if (group === "starting-books") {
-    bookList = startingBooks.map((book) => new Book(book));
+    bookList = startingBooks.map((book) => new BookTest(book));
 
     for (let i = 0; i < bookList.length; i++) {
       addBookToTheContainer(i);
     }
   } else if (group === "new-book" && value) {
-    bookList.push(new Book(value));
+    bookList.push(new BookTest(value));
     addBookToTheContainer();
   } else if (bookList.length === 0) {
     console.log("The library is empty.");
